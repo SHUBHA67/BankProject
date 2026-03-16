@@ -101,29 +101,22 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
   styleUrls: ["./account.component.scss"],
 })
 export class AccountComponent implements OnInit {
+
   accountForm: FormGroup = this.formBuilder.group({});
   successMessage: string = "";
   errorMessage: string = "";
   customers: any[] = [];
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
     this.accountForm = this.formBuilder.group({
-      accountId: [null, [Validators.required]],
-      customerId: [null],
-      balance: [null, [Validators.min(0)]],
+      account_id:  [null],
+      customer_id: [null],
+      balance:     [null, [Validators.min(0)]],
     });
   }
 
-  onSubmit(): void {
-    if (this.accountForm.invalid) {
-      this.errorMessage = "Please fill out all required fields correctly.";
-      return;
-    }
-    this.successMessage = "Account created successfully";
-    this.errorMessage = "";
-  }
-
-  loadCustomers(): void { }
+  onSubmit(): void {}
+  loadCustomers(): void {}
 }
